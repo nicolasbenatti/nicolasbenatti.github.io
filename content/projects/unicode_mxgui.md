@@ -3,7 +3,7 @@ title: "Unicode support for mxgui"
 date: 2024-04-01
 description: "Adding support for Unicode text rendering in an embedded OS."
 tags: ["C++", "operating systems", "embedded systems", "font rendering"]
-github: "https://github.com/nicolasbenatti/mxgui"
+github: "https://github.com/fedetft/mxgui"
 demo: ""
 ---
 
