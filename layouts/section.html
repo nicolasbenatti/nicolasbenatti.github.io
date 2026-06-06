@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class="section-page">
+  <header class="section-page-header">
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{ with .Content }}<div class="prose section-intro">{{ . }}</div>{{ end }}
+  </header>
+
+  {{ if eq .Section "publications" }}
+  <ul class="pub-list pub-list--full">
+    {{ range sort .Pages "Params.year" "desc" }}
+    <li class="pub-item">
+      <a class="pub-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <div class="pub-meta">
+        {{ with .Params.authors }}<span class="pub-authors">{{ delimit . ", " }}</span> · {{ end }}
+        {{ with .Params.venue }}<span class="pub-venue">{{ . }}</span>{{ end }}
+        {{ with .Params.year }} {{ . }}{{ end }}
+      </div>
+      {{ with .Params.abstract }}<p class="pub-abstract">{{ . | truncate 220 }}</p>{{ end }}
+      <div class="pub-links">
+        {{ with .Params.pdf }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">[PDF]</a>{{ end }}
+        {{ with .Params.arxiv }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">[arXiv]</a>{{ end }}
+        {{ with .Params.doi }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">[DOI]</a>{{ end }}
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+
+  {{ else }}
+  <ul class="card-list card-list--full">
+    {{ range sort .Pages "Date" "desc" }}
+    <li class="card">
+      <div class="card-main">
+        <a class="card-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <p class="card-desc">{{ .Description }}</p>
+        {{ with .Params.tags }}
+        <div class="tag-list">{{ range . }}<span class="tag">{{ . }}</span>{{ end }}</div>
+        {{ end }}
+      </div>
+      <div class="card-links">
+        {{ with .Params.github }}<a href="{{ . }}" class="card-link" target="_blank" rel="noopener">GitHub</a>{{ end }}
+        {{ with .Params.demo }}<a href="{{ . }}" class="card-link" target="_blank" rel="noopener">Demo</a>{{ end }}
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+</div>
+{{ end }}

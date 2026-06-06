@@ -1,0 +1,39 @@
+{{ define "main" }}
+<article class="single-page">
+  <header class="single-header">
+    <h1 class="page-title">{{ .Title }}</h1>
+
+    {{ if eq .Section "publications" }}
+    <div class="pub-meta pub-meta--single">
+      {{ with .Params.authors }}<div class="pub-authors">{{ delimit . ", " }}</div>{{ end }}
+      <div>
+        {{ with .Params.venue }}<span class="pub-venue">{{ . }}</span>{{ end }}
+        {{ with .Params.year }}<span class="pub-year"> · {{ . }}</span>{{ end }}
+      </div>
+      <div class="pub-links pub-links--single">
+        {{ with .Params.pdf }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">[PDF]</a>{{ end }}
+        {{ with .Params.arxiv }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">[arXiv]</a>{{ end }}
+        {{ with .Params.doi }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">[DOI]</a>{{ end }}
+      </div>
+    </div>
+
+    {{ else if eq .Section "projects" }}
+    <div class="project-meta">
+      {{ with .Params.tags }}<div class="tag-list">{{ range . }}<span class="tag">{{ . }}</span>{{ end }}</div>{{ end }}
+      <div class="card-links">
+        {{ with .Params.github }}<a href="{{ . }}" class="card-link" target="_blank" rel="noopener">GitHub</a>{{ end }}
+        {{ with .Params.demo }}<a href="{{ . }}" class="card-link" target="_blank" rel="noopener">Live demo</a>{{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </header>
+
+  <div class="prose single-content">
+    {{ .Content }}
+  </div>
+
+  <footer class="single-footer">
+    <a class="back-link" href="{{ .Parent.RelPermalink }}">← Back to {{ .Parent.Title }}</a>
+  </footer>
+</article>
+{{ end }}
