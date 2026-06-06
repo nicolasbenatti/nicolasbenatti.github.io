@@ -17,7 +17,7 @@
       </div>
       {{ with .Params.abstract }}<p class="pub-abstract">{{ . | truncate 220 }}</p>{{ end }}
       <div class="pub-links">
-        {{ with .Params.pdf }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">[PDF]</a>{{ end }}
+        {{ with .Params.pdf }}<a href="{{ . | absURL }}" class="pub-link" target="_blank" rel="noopener">[PDF]</a>{{ end }}
         {{ with .Params.arxiv }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">[arXiv]</a>{{ end }}
         {{ with .Params.doi }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">[DOI]</a>{{ end }}
       </div>

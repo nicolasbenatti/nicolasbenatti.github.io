@@ -1,7 +1,7 @@
 {{ define "main" }}
 <section class="home-hero">
   {{ with .Site.Params.avatar }}
-  <img class="hero-avatar" src="{{ . }}" alt="Portrait of {{ $.Site.Params.author }}" width="256" height="256">
+  <img class="hero-avatar" src="{{ . | absURL }}" alt="Portrait of {{ $.Site.Params.author }}" width="256" height="256">
   {{ end }}
   <div class="hero-text">
     <h1 class="hero-name">{{ .Site.Params.author }}</h1>

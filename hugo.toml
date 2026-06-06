@@ -6,7 +6,7 @@ disableKinds = ["taxonomy", "term"]
 [params]
   author      = "Nicolas Benatti"
   bio         = "Researcher and engineer. I build things and write about them."
-  avatar      = "/images/me.png"
+  avatar      = "images/me.png"
   description = "Nicolas Benatti's Web corner"
 
   [params.social]

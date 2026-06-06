@@ -6,7 +6,7 @@ authors:
   - "Vittorio Zaccaria"
 venue: "38th European Conference on Real-Time Systems (ECRTS)"
 year: 2026
-pdf: "/publications/dos_ecrts26.pdf"
+pdf: "publications/dos_ecrts26.pdf"
 arxiv: ""
 doi: "https://doi.org/10.4230/LIPIcs.ECRTS.2026.11"
 abstract: "In order to satisfy power, area and cost constraints, modern Cyber-Physical Systems (CPSs) often consolidate tasks with vastly different assurance requirements onto a shared platform. Mixed-Criticality Systems (MCSs) enable this consolidation while maintaining timing guarantees on complex hardware through probabilistic timing analysis. Among these techniques, Measurement-Based Probabilistic Timing Analysis (MBPTA) has gained popularity in recent years; it works by deriving Worst-Case Execution Time (WCET) estimates from input samples collected at design time. The impossibility of fully covering tasks' input space during MBPTA can pave the way for Denial-of-Service (DoS) attacks: adversaries can, for example, craft data-oriented and sensor spoofing attacks that force execution along unobserved paths, inducing WCET overruns and deadline violations.
