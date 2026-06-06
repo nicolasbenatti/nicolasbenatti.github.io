@@ -36,6 +36,15 @@
     btn.addEventListener('click', toggle);
   }
 
+  /* Follow OS preference changes live — only when user hasn't made a manual choice */
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+      if (!getStored()) {
+        apply(e.matches ? DARK : LIGHT);
+      }
+    });
+  }
+
   /* Sync across tabs */
   window.addEventListener('storage', function (e) {
     if (e.key === KEY && e.newValue) {
